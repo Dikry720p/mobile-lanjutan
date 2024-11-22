@@ -10,14 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Aplikasi Orang lain',
+      title: 'Aplikasi Orang Lain',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
-      initialBinding: BindingsBuilder(() {
-        Get.put(SplashScreenController());
-      }),
+      home: SplashScreen(), // Halaman utama adalah SplashScreen
     );
   }
 }

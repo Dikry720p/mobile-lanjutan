@@ -27,11 +27,10 @@ class LoginController extends GetxController {
 
     var userData = jsonDecode(response.body);
 
-    if (userData != null) {
+    if (response.statusCode == 200) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString('user', userData.toString());
-      // await prefs.setString('accessToken', userData.accessToken.toString());
-
+      await prefs.setString('user', jsonEncode(userData));
+      await prefs.setString('fristname', jsonEncode(userData));
       Get.off(HomePage());
     } else {
       Get.snackbar('Error', response.body);
